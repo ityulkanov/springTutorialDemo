@@ -38,4 +38,5 @@ out
 test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
-
+# all jar files 
+*.jar
