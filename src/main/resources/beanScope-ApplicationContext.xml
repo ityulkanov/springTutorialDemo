@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:contex="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+        <bean id="myLoggerConfig" class="com.igortyulkanov.springdemo.MyLoggerConfig">
+                <property
+                        name="rootLoggerLevel" value="FINE" />
+                <property
+                        name="printedLoggerLevel" value="FINE"/>
+        </bean>
+        <bean id="conversionService"
+              class="org.springframework.context.support.ConversionServiceFactoryBean"/>
+
+        <bean id="myFortuneService"
+              class="com.igortyulkanov.springdemo.HappyFortuneService">
+        </bean>
+
+        <bean id="myCoach"
+              class="com.igortyulkanov.springdemo.TrackCoach"
+        scope="prototype" >
+
+                <constructor-arg ref="myFortuneService" />
+        </bean>
+
+
+</beans>
